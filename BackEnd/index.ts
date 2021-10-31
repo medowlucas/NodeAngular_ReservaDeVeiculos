@@ -11,7 +11,7 @@ app.use(express.json());
 const PORT = 3000;
 
 // listar todos
-app.get('/veiculos', (req, res)=>{             
+app.get('/veiculos', (req, res)=>{            
   return res.status(200).json(veiculosArray);
 })
 // listar por index

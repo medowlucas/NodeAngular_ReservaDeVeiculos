@@ -1,6 +1,6 @@
-import { Veiculo } from './Veiculo';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Veiculo } from './Veiculo';
 
 
 @Injectable({
@@ -8,21 +8,23 @@ import { Injectable } from '@angular/core';
 })
 export class ListarService {
 
-  public arrayVeiculos:any;
+  public arrayVeiculos:any=[];
   public url:string='http://localhost:3000';
-  
+
   constructor(private _http: HttpClient) {
    }
   
-  async getVeiculos(){
-    // return this._http.get(this.url + '/veiculos').toPromise().then(data=> console.log(data));
-    // this._http.get(this.url + '/veiculos').subscribe( data=>{return data});
-    this._http.get<Veiculo>(this.url + '/veiculos').subscribe(data => {return data;
-    })
-   }
+  getVeiculos(){
+    this._http.get<any>(this.url + '/veiculos').toPromise().then(async data=>{
+      for(let i=0;i<data.length;i++){
+      await this.arrayVeiculos.push(data[i])
+    }});
+      return this.arrayVeiculos;
+    }
 
-   async getVeiculosIndex(index:number){
-    return await this._http.get(this.url + '/veiculos/' + index.toString()).toPromise().then(data=> console.log(data) );;
-  }
+  //  getVeiculosIndex(index:number){
+  //   this._http.get<any>(this.url + '/veiculos/' + index.toString()).toPromise().then(data=>{
+  //     return new Veiculo(data.placa,data.modelo,data.ano,data.estado) });
+  // }
 
 }

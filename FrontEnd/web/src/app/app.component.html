@@ -1,18 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-md navbar-light bg-light  sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Reserva de Veículos</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="#">Web Veículos</a>
+    <button class="navbar-toggler" type="button" aria-controls="navbarConteudo" aria-label="Toggle navigation"
+    data-toggle="collapse" data-target="#navbarConteudo">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarConteudo">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li routerLinkActive="active" class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Listar</a>
         </li>
-        <li class="nav-item">
+        <li routerLinkActive="active" class="nav-item">
           <a class="nav-link" [routerLink]="['/app-cadastro-veiculo']">Cadastrar</a>
         </li>
-        <li class="nav-item">
+        <li routerLinkActive="active" class="nav-item">
           <a class="nav-link" [routerLink]="['/app-reserva-veiculo']">Reservas</a>
         </li>
       </ul>
