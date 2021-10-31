@@ -17,7 +17,6 @@ app.get('/veiculos', (req, res)=>{
 // listar por index
 app.get('/veiculos/:index', (req, res)=>{     
   const index =Number(req.params.index);
-  return res.status(200).json(veiculosArray[index]);
 })
 //metodo post via dados no body
 app.post('/veiculos', (req, res) => { 
@@ -37,10 +36,11 @@ app.put('/veiculos/:index', (req, res) => {
 })
 //deletar por index
 app.delete('/veiculos/:index', (req, res)=>{
-  const index = Number(req.params.index); 
+  const index = Number(req.params.index);
   const deletado = veiculosArray[index];
-  veiculosArray.splice(index,index+1);
-  return res.status(200).json(deletado);
+  veiculosArray.splice(index,1);
+  // return res.status(200).json(deletado);
+  return res.send();
 })
 
 

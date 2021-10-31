@@ -8,15 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VeiculosComponent implements OnInit {
 
-  constructor(private _listarService: ListarService) { }
+  constructor(private _listarService: ListarService) {
+   }
  
-  public _row:Array<any> = [{a:'oi',b:"tchau"},{a:'oi'}];
+  public _row:any;
 
   ngOnInit(): void {
-    this.loadListarVeiculos();
+    this.loadVeiculos(1);
   }
 
-  loadListarVeiculos(){
-    return this._listarService.listarVeiculos();
+  loadVeiculos(index:number){
+    this._listarService.getVeiculos();
   }
 }
