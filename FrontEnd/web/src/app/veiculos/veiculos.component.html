@@ -3,7 +3,6 @@
   </div>
   <div class="card-body">
     <h5 class="card-title">Lista de Veículos</h5>
-    <p class="card-text">Lista:</p>
     <tbody>
       <tr>
         <th>Id</th>
@@ -12,7 +11,7 @@
         <th>Ano</th>
         <th>Estado</th>
       </tr>
-      <tr *ngFor="let item of _rows; let i =index">
+      <tr *ngFor="let item of _rows; let i = index">
         <td>{{i}}</td>
         <td>{{item.placa}}</td>  
         <td>{{item.modelo}}</td>
@@ -20,6 +19,6 @@
         <td>{{item.estado?'Disponível':'Manutenção'}} </td>
       </tr>
     </tbody>
-    <a href="#" class="btn btn-primary">Selecionar</a>
+    <a class="btn btn-primary" (click)="this.insertVeiculo(this.veiculo)" >Selecionar</a>
   </div>
 </div>

@@ -19,7 +19,7 @@ import { ReservaVeiculoComponent } from './veiculos/reserva-veiculo/reserva-veic
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [ListarService],
   bootstrap: [AppComponent]

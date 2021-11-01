@@ -25,7 +25,7 @@ app.post('/veiculos', (req, res) => {
   const { ano } = req.body; 
   const { estado } = req.body;
   veiculosArray.push(new Veiculo(placa,modelo,ano,estado));
-  return res.status(200).json(veiculosArray[veiculosArray.length-1]); 
+  return res.status(200); 
 })
 // inserir pelo index do array
 app.put('/veiculos/:index', (req, res) => {
