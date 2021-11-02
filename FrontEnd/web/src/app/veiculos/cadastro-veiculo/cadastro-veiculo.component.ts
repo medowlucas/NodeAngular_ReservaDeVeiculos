@@ -1,6 +1,6 @@
 import { Veiculo } from './../Veiculo';
-import { ListarService } from './../listarService';
-import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../apiService';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-cadastro-veiculo',
@@ -17,12 +17,11 @@ export class CadastroVeiculoComponent{
   public ano:number = 0;
   public estado:boolean = true;
 
-
-  constructor(private _listarService: ListarService) {
+  constructor(private _apiService: ApiService) {
   }
  
   async insertVeiculo(veiculo:Veiculo){
-    await this._listarService.postVeiculo(veiculo);
+    await this._apiService.postVeiculo(veiculo);
     window.location.reload()
   }
 

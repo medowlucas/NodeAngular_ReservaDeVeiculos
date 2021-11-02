@@ -6,7 +6,7 @@ import { Veiculo } from './Veiculo';
 @Injectable({
   providedIn: 'root'
 })
-export class ListarService {
+export class ApiService {
 
   public arrayBuscaPlaca:any=[];
   public url:string='http://localhost:3000';

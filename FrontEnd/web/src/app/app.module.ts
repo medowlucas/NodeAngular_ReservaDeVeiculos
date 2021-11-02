@@ -1,6 +1,6 @@
 
 import { HttpClientModule } from '@angular/common/http';
-import { ListarService } from './veiculos/listarService';
+import { ApiService } from './veiculos/apiService';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -23,7 +23,7 @@ import { ReservaVeiculoComponent } from './veiculos/reserva-veiculo/reserva-veic
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ListarService],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
