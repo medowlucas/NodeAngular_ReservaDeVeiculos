@@ -15,5 +15,4 @@ export class Veiculo{
         this.ano = ano;
         this.estado = estado;
     }
-
 }

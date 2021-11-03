@@ -17,9 +17,9 @@ export class VeiculosComponent implements OnInit {
   public dataAtual = new Date();
   public dataInicio:any = this.converterData(this.dataAtual).toString().slice(0, 16);
   public dataFim:any = this.converterData(this.dataAtual).toString().slice(0, 16);
-  public veiculo:Array<Veiculo>=[{placa:'c',modelo:'mus',ano:2,estado:true},{placa:'c',modelo:'mus',ano:2,estado:true}]
   public veiculoSelecionado:string = '';
   public agendar:Agenda = new Agenda('','',EnumReserva[1],'');
+  public selectOptions:Array<Veiculo> = [];
 
   constructor(private _apiService: ApiService) {
   }
@@ -38,6 +38,7 @@ export class VeiculosComponent implements OnInit {
   }
 
   filtrarDisponivel(a?:number){
+    this.filtrarData();
     this.veiculoSelecionado = this.todosVeiculos[0].placa;
     this._rows = this.todosVeiculos;
     this._rows = this._rows.filter(disponivel=>disponivel.estado);
@@ -91,6 +92,25 @@ export class VeiculosComponent implements OnInit {
 
   recebeVeiculoOnChange(valor:any){
     this.veiculoSelecionado = valor;
+  }
+
+  filtrarData(){
+    var veiculoDataFiltrado:Array<string> = [];
+    this.selectOptions = [];
+    this.todaAgenda.forEach((element:Agenda)=>{
+      if((this.dataInicio < element.inicioReserva && this.dataFim < element.inicioReserva)||(this.dataInicio > element.fimReserva)){
+        veiculoDataFiltrado.push(element.placaVeiculo);
+      }
+    });
+    veiculoDataFiltrado.forEach((placa:string)=>{
+      this._rows.forEach((veiculo=>{
+        if(veiculo.placa == placa){
+          this.selectOptions.push(veiculo);
+        }
+      }))
+    }); 
+    this._rows = new Array();
+    this._rows = this.selectOptions;
   }
 
 }

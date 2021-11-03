@@ -1,13 +1,13 @@
 import {Veiculo} from '../BackEnd/model/veiculo';
 import { EnumReserva } from './model/EnumReserva';
 
-var veiculosArray:Array<object> = [
+var veiculosArray:Array<object> = [ //EXEMPLO DE BANCO
   {placa:'a',modelo:'ferrari',ano:1,estado:true},
   {placa:'b',modelo:'mus',ano:2,estado:true}
 ];
 
 var agendaArray:Array<Agenda> = [
-  {inicioReserva:'',fimReserva: '', estadoReserva: EnumReserva[2],placaVeiculo:'a'}
+  {inicioReserva:'',fimReserva: '', estadoReserva: EnumReserva[2],placaVeiculo:'a'}//EXEMPLO DE BANCO
 ]
 
 import express from 'express';
