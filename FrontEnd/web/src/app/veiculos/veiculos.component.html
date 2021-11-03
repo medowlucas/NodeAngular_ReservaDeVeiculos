@@ -1,8 +1,47 @@
 <div class="card">
   <div class="card-header">
   </div>
+
   <div class="card-body">
-    <h5 class="card-title">Lista de Veículos</h5>
+    <h5 class="card-title">Período</h5>
+    <form>
+      <div class="form-control">
+        <div class="row">
+          <div class="col-sm-6">
+            <label class="form-label" for="dataInicio"> Início </label>
+            <input type="datetime-local" name="dataInicio" [(ngModel)]="this.dataInicio">    
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label" for="dataFim"> Fim </label>
+            <input type="datetime-local" name="dataFim" [(ngModel)]="this.dataFim">
+          </div>
+        </div>
+        <div class="col-sm-12">
+            <label class="form-label">Veículo </label>
+            <div *ngIf="_rows.length > 0">
+              <div class="col-md-6">
+                <select class="form-control" #valor (change)="recebeVeiculoOnChange(valor.value)">
+                  <option *ngFor="let disponiveis of _rows" [value]="disponiveis.placa">
+                    {{disponiveis.placa}} - {{disponiveis.modelo}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+      </div>
+    </form> 
+  </div>
+  <div>
+    <button class="btn btn-primary btn-md" (click)="this.filtrarDisponivel()">Filtrar</button>
+  </div>
+  <div class="row mt-2">
+    <div>
+      <button class="btn btn-danger btn-md" (click)="this.formClean()">Cancelar</button>
+      <button class="btn btn-success btn-md" (click)="this.onSubmit()">Submit</button>
+    </div>
+    
+  </div>
+    <h5 class="card-title mt-2 " style="margin-left: 1vw !important">Lista de Veículos</h5>
     <tbody>
       <tr>
         <th>Id</th>
@@ -19,6 +58,4 @@
         <td>{{item.estado?'Disponível':'Manutenção'}} </td>
       </tr>
     </tbody>
-    <a class="btn btn-primary" (click)="this.insertVeiculo(this.veiculo)" >Selecionar</a>
-  </div>
 </div>

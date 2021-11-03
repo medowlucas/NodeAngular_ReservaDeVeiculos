@@ -38,11 +38,15 @@ export class CadastroVeiculoComponent{
   }
 
   confirmacao() {
-    if(confirm(`Confirma o Cadastrado desse Veículo?`)) {
-      this.insertVeiculo(this.veiculo);
-      alert(`Veículo Cadastrado com Sucesso!`);
+    if(this.placa != ''){
+      if(confirm(`Confirma o Cadastrado desse Veículo?`)) {
+        this.insertVeiculo(this.veiculo);
+        alert(`Veículo Cadastrado com Sucesso!`);
+      }
+      this.formClean();
+    }else{
+      alert('Preencha a Placa')
     }
-    this.formClean();
   }
 
 }

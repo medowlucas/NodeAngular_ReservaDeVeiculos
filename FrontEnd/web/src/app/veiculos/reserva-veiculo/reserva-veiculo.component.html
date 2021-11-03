@@ -3,7 +3,22 @@
     </div>
     <div class="card-body">
       <h5 class="card-title">Reserva de Veículo</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <tbody>
+        <tr>
+          <th>Id</th>
+          <th>Placa</th>
+          <th>Início da Reserva</th>
+          <th>Fim da Reserva</th>
+          <th>Estado da Reserva</th>
+        </tr>
+        <tr *ngFor="let item of todaAgenda; let i = index">
+          <td>{{i}}</td>
+          <td>{{item.placaVeiculo}} </td>
+          <td>{{item.inicioReserva}}</td>  
+          <td>{{item.fimReserva}}</td>
+          <td>{{item.estadoReserva}}</td>      
+        </tr>
+      </tbody>
+      <a href="#" class="btn btn-primary">Ok</a>
     </div>
   </div>
